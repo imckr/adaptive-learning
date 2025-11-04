@@ -1,0 +1,43 @@
+subject,accuracy,avg_time,streak,current_level,next_level
+Math,0.25,9.0,0,0,0
+Math,0.40,8.2,1,0,1
+Math,0.60,6.5,2,1,1
+Math,0.75,5.5,3,1,2
+Math,0.90,4.0,4,2,2
+Math,0.50,7.0,0,1,0
+Math,0.85,4.8,2,2,2
+Biology,0.30,8.8,0,0,0
+Biology,0.45,7.6,1,0,1
+Biology,0.60,6.9,2,1,1
+Biology,0.80,5.3,3,1,2
+Biology,0.90,4.2,4,2,2
+Biology,0.55,7.1,0,1,0
+Indian Law,0.20,9.3,0,0,0
+Indian Law,0.35,8.5,1,0,0
+Indian Law,0.55,7.2,2,1,1
+Indian Law,0.70,6.0,3,1,2
+Indian Law,0.85,5.1,4,2,2
+Indian Law,0.45,7.7,0,0,1
+Geography,0.25,9.0,0,0,0
+Geography,0.45,8.0,1,0,1
+Geography,0.60,6.8,2,1,1
+Geography,0.78,5.6,3,1,2
+Geography,0.92,4.3,4,2,2
+Geography,0.55,6.9,0,1,0
+English,0.30,8.5,0,0,0
+English,0.50,7.3,1,0,1
+English,0.65,6.1,2,1,1
+English,0.80,5.2,3,1,2
+English,0.92,4.1,4,2,2
+English,0.45,7.8,0,0,0
+English,0.70,6.2,2,1,2
+Math,0.10,9.8,0,0,0
+Biology,0.25,8.9,0,0,0
+Indian Law,0.60,6.4,2,1,1
+Geography,0.85,5.0,3,2,2
+English,0.55,6.7,1,1,1
+Biology,0.72,5.5,2,1,2
+Math,0.95,3.8,4,2,2
+Indian Law,0.50,7.1,1,0,1
+Geography,0.30,8.9,0,0,0
+English,0.88,4.5,3,2,2

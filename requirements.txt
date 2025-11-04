@@ -1,0 +1,11 @@
+langchain
+langchain-classic
+langchain-core
+langchain-openai
+openai
+scikit-learn
+# faiss-cpu
+pandas
+python-dotenv
+numpy
+matplotlib
