@@ -1,82 +1,171 @@
-# Math Adventure - AI-powered Adaptive Learning Prototype
+# CLI based Adaptive Learning Game (supports five subject)
 
-An AI-driven adaptive math learning prototype designed to dynamically adjust puzzle difficulty based on learner performance.
-The system helps children (ages 5–10) practice basic math (addition, subtraction, multiplication, and division) while staying in their optimal challenge zone.
+### *AI-Powered Dynamic Quiz Generator with Adaptive Difficulty, ML Engine & Performance Tracking*
 
-## Architecture
+This project is an **interactive command-line learning game** that generates **dynamic, subject-specific MCQs** using the **OpenAI API**.
+It includes a **machine-learning adaptive engine**, a **performance tracker**, and **visual performance graphs** to create a personalized learning experience.
 
-![alt text](architecture.png)
+---
+
+### Architecture
+
+<img width="4675" height="1992" alt="architecture" src="https://github.com/user-attachments/assets/a70b614b-bba0-44b3-85dd-d5129d5334c7" />
+
 
 ## Features
 
-- **Math Puzzle Generator** : Creates random math problems at Easy, Medium, and Hard levels.
+### **1. AI-Generated MCQs (OpenAI API)**
 
-- **Performance Tracker** : Logs correctness and response time for each puzzle.
+* Dynamically generates high-quality MCQs across subjects like Math, Science, History, Geography, and English.
+* Ensures:
 
-- **Adaptive Engine(ML + Rule-Based)** : Predicts the next difficulty level using a hybrid of logistic regression and rule-based logic.
+  * 4 consistent answer choices
+  * Fully structured JSON output
+  * Explanation for each question
+  * Difficulty score (1–10)
 
-- **Performance Summary & Graph** : Displays overall accuracy, average time, and recommended next level.
+---
 
-- **CLI Interface** : Simple console flow for easy testing and demonstration.
+### **2. Adaptive Difficulty Engine (ML-Powered)**
 
-## Project Structure
+* Trained on a synthetic dataset that includes:
 
-- adaptive-learning-prototype/
-  - ml_based/
-    - requirements.txt
-    - README.md
-    - src /
-      - main.py
-      - puzzle_generator.py
-      - tracker.py
-      - adaptive_engine.py
+  * Accuracy %
+  * Time taken
+  * Streak
+  * Subject
+  * Current level
+* Uses **Logistic Regression + StandardScaler** to recommend next difficulty level:
 
-  - rule_based/ # same as above
+  * Easy → Medium
+  * Medium → Hard
+  * Hard → Medium/Easy (if user struggles)
+
+---
+
+### **3. Performance Tracking & Graphs**
+
+Tracks:
+
+* Accuracy over time
+* Time taken per question
+* Streaks
+* Overall summary
+
+Plots include:
+
+* Accuracy trend line
+* Response time graph
+
+Uses **matplotlib** to render graphs.
+
+---
+
+### **4. CLI-Based Game Flow**
+
+Simple, clean terminal interface:
+
+```
+Welcome to Quiz Adventures — AI-Powered MCQ Game
+1. Start New Session
+2. View Performance Summary
+3. View Performance Graph
+4. Exit
+```
+
+---
+
+### **5. Modular Architecture**
+
+Organized into clean files:
+
+```
+src/
+ ├── main.py              # Entry point
+ ├── mcq_generator.py     # OpenAI MCQ generator
+ ├── performance_tracker.py
+ ├── adaptive_engine.py    # ML difficulty engine
+ └── data/
+        training_data.csv
+```
+
+---
 
 ## Installation
 
-> ### Clone the repository
-```
-git clone https://github.com/imckr/Adaptive-learning-prototype.git
+### 1. Clone the repository
 
-cd Adaptive-learning-prototype/ml_based
+```sh
+git clone https://github.com/yourusername/adaptive-learning.git
+cd adaptive-learning
 ```
 
-> ### Install dependencies
+### 2. Create Virtual Environment
+
+```sh
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 ```
+
+### 3. Install Dependencies
+
+```sh
 pip install -r requirements.txt
 ```
 
-> ### Run the prototype
+---
+
+## Environment Variables
+
+Create a `.env` file:
+
 ```
+OPENAI_API_KEY=your_api_key_here
+```
+
+---
+
+## Run the Game
+
+```sh
 python src/main.py
 ```
 
-## How to play
+---
 
-1. Run the game - you'll be asked to enter your name and starting difficulty (Easy / Medium / Hard).
+## Example MCQ JSON Output
 
-2. Answer the math questions that appear.
+```json
+{
+  "question": "What is the chemical symbol for water?",
+  "choices": ["H2O", "O2", "CO2", "NaCl"],
+  "answer_index": 0,
+  "explanation": "Water consists of two hydrogen atoms bonded to one oxygen atom.",
+  "difficulty_score": 2
+}
+```
 
-3. The system records your correctness and response time.
+---
 
-4. After each question, difficulty, adjusts automatically based on your performance:
-   - if you're doing well --> next question is harder.
-   - if you're struggling --> next question is easier.
+## Future Improvements
 
-5. After all questions, you'll see:
-   - Accuracy percentage.
-   - Average response time.
-   - Recommended next difficulty level.
-   - A **graph** showing accuracy and response time trends.
+* Add memory-based reinforcement learning
+* Introduce user profiles & progress graphs
+* Export progress reports
+* Add web UI (FastAPI + React/Streamlit)
+* Add leaderboard & gamification
 
-## ML Model (Logistic Regression)
+---
 
-The ML engine is trained on `adaptive_training_data.csv`, which maps accuracy and response time to the most suitable next difficulty level.
+## Contributing
 
-- Input features: `accuracy`, `avg_time`
-- Output label: `next_level`
-- Model: Logistic Regression (scikit-learn)
-- Scaling: StandardScaler for balanced feature influence
+Open for contributions!
+Suggestions, PRs, improvements — all welcome.
 
-This allows smooth, data-driven transitions instead of hard-coded thresholds.
+---
+
+## License
+
+MIT License.
+
+---
